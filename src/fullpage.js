@@ -2080,7 +2080,17 @@
             //playing HTML5 media elements
             $('video, audio', panel).forEach(function(element){
                 if( element.hasAttribute('data-autoplay') && typeof element.play === 'function' ) {
-                    element.play();
+                    var promise = element.play();
+                    
+                    if (promise !== undefined) {
+                        promise.then((_) => {
+                            element.muted = true;
+                            element.play();
+                        }).catch((error) => {
+                            element.muted = true;
+                            element.play();
+                        });
+                    }
                 }
             });
 
