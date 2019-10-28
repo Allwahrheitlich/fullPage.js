@@ -4,6 +4,7 @@
   "description": "Create beautiful fullscreen scrolling websites",
   "main": "dist/fullpage.js",
   "scripts": {
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
